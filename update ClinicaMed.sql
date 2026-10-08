@@ -1,0 +1,10 @@
+-- UPDATE : ATUALIZANDO O NOME DO PACIENTE MARIA 
+-- NUNCA ESQUECA DO WHERE , SENAO ATUALIZA O BANCO INTEIRO!
+ 
+SET SQL_SAFE_UPDATES = 0;
+
+update pacientes
+set nome = 'maria da silva'
+where cpf = '111.222.444-55';
+
+SET SQL_SAFE_UPDATES = 1;

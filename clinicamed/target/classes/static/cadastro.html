@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ClínicaMed - Cadastro</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            background: #eef3f8;
+            color: #1c2b36;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px 12px;
+        }
+        .cartao {
+            background: #fff;
+            width: 100%;
+            max-width: 460px;
+            padding: 32px 28px;
+            border-radius: 14px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, .10);
+        }
+        h1 { margin: 0 0 4px; font-size: 1.5rem; color: #0b6fa4; }
+        .sub { margin: 0 0 22px; color: #5b6b78; font-size: .95rem; }
+        label { display: block; margin: 14px 0 5px; font-weight: 600; font-size: .9rem; }
+        .obrig::after { content: " *"; color: #c0392b; }
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #c4ced6;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        input:focus { outline: 2px solid #0b6fa4; border-color: transparent; }
+        .dica { font-size: .8rem; color: #7a8894; margin-top: 4px; }
+        button {
+            width: 100%;
+            margin-top: 24px;
+            padding: 12px;
+            border: 0;
+            border-radius: 8px;
+            background: #0b6fa4;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        button:hover { background: #095a86; }
+        .rodape { text-align: center; margin-top: 18px; font-size: .9rem; }
+        .rodape a { color: #0b6fa4; }
+    </style>
+</head>
+<body>
+<main class="cartao">
+    <h1>Criar conta</h1>
+    <p class="sub">Cadastro de paciente da ClínicaMed. Campos com * são obrigatórios.</p>
+
+    <form method="post" action="/api/cadastro/paciente">
+        <label class="obrig" for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" maxlength="100" required autocomplete="name">
+
+        <label class="obrig" for="cpf">CPF</label>
+        <input type="text" id="cpf" name="cpf" inputmode="numeric" maxlength="14"
+               pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})" placeholder="000.000.000-00"
+               title="Digite os 11 números do CPF" required>
+
+        <label class="obrig" for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone" maxlength="20"
+               placeholder="(11) 91234-5678" required autocomplete="tel">
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" maxlength="100" autocomplete="email">
+
+        <label for="endereco">Endereço</label>
+        <input type="text" id="endereco" name="endereco" maxlength="200" autocomplete="street-address">
+
+        <label class="obrig" for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" minlength="6" required autocomplete="new-password">
+        <div class="dica">Mínimo de 6 caracteres.</div>
+
+        <label class="obrig" for="senha2">Confirmar senha</label>
+        <input type="password" id="senha2" name="senha2" minlength="6" required autocomplete="new-password">
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <p class="rodape">Já tem conta? <a href="/index.html">Entrar</a></p>
+</main>
+</body>
+</html>

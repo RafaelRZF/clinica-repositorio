@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ClínicaMed - Entrar como Funcionário</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #eef3f8; color: #1c2b36;
+               display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px 12px; }
+        h1 { margin: 0 0 4px; font-size: 1.6rem; color: #0b6fa4; text-align: center; }
+        .sub { margin: 0 0 24px; color: #5b6b78; text-align: center; }
+        a { color: #0b6fa4; }
+        .cartao { background: #fff; width: 100%; max-width: 400px; padding: 32px 28px; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,.10); }
+        label { display: block; margin: 14px 0 5px; font-weight: 600; font-size: .9rem; }
+        input { width: 100%; padding: 10px 12px; border: 1px solid #c4ced6; border-radius: 8px; font-size: 1rem; }
+        input:focus { outline: 2px solid #0b6fa4; border-color: transparent; }
+        button { width: 100%; margin-top: 24px; padding: 12px; border: 0; border-radius: 8px; background: #0b6fa4; color: #fff;
+                 font-size: 1rem; font-weight: 600; cursor: pointer; }
+        button:hover { background: #095a86; }
+        .rodape { text-align: center; margin-top: 18px; font-size: .9rem; }
+    </style>
+</head>
+<body>
+    <main class="cartao">
+        <h1>Entrar</h1>
+        <p class="sub">Acesso de Funcionário</p>
+
+        <form method="post" action="/api/login">
+            <input type="hidden" name="perfil" value="FUNCIONARIO">
+
+            <label for="usuario">CPF</label>
+            <input type="text" id="usuario" name="usuario" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" autocomplete="username" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" required autocomplete="current-password">
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <p class="rodape"><a href="/cadastroFuncionario.html">Criar conta</a> &middot; <a href="/escolhaPerfil.html">Trocar perfil</a></p>
+    </main>
+</body>
+</html>

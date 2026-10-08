@@ -1,0 +1,5 @@
+-- DELETE : APAGANDO UM PACIENTE DO BANCO
+-- ATENCAO : NUNCA EXCLUA UM CLIENTE QUE JA AGENDOU UMA CONSULTA(COMO O LUCAS)
+  
+  delete from pacientes
+  where id_pacientes = 2;

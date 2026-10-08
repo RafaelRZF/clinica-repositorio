@@ -1,0 +1,41 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Paciente
+actor Médico
+actor Funcionário
+rectangle "Sistema ClinicaMed" {
+  usecase "Cadastrar-se (auto-cadastro)" as UC1
+  usecase "Fazer login" as UC2
+  usecase "Agendar / cancelar própria consulta" as UC3
+  usecase "Ver próprios prontuários e pagamentos" as UC4
+  usecase "Consultar pacientes" as UC5
+  usecase "Confirmar / cancelar consultas" as UC6
+  usecase "Gerenciar prontuários" as UC7
+  usecase "Gerenciar pacientes" as UC8
+  usecase "Gerenciar consultas" as UC9
+  usecase "Gerenciar pagamentos" as UC10
+  usecase "Gerenciar médicos" as UC11
+  usecase "Gerenciar funcionários" as UC12
+  usecase "Definir senha de acesso" as UC13
+}
+Paciente --> UC1
+Paciente --> UC2
+Paciente --> UC3
+Paciente --> UC4
+Médico --> UC2
+Médico --> UC5
+Médico --> UC6
+Médico --> UC7
+Funcionário --> UC2
+Funcionário --> UC7
+Funcionário --> UC8
+Funcionário --> UC9
+Funcionário --> UC10
+Funcionário --> UC11
+Funcionário --> UC12
+UC1 ..> UC13 : <<include>>
+UC8 ..> UC13 : <<include>>
+UC11 ..> UC13 : <<include>>
+UC12 ..> UC13 : <<include>>
+@enduml

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ClínicaMed - Login</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #eef3f8; color: #1c2b36;
+               display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px 12px; }
+        .cartao { background: #fff; width: 100%; max-width: 400px; padding: 32px 28px; border-radius: 14px; box-shadow: 0 6px 24px rgba(0,0,0,.10); }
+        h1 { margin: 0 0 4px; font-size: 1.6rem; color: #0b6fa4; text-align: center; }
+        .sub { margin: 0 0 22px; color: #5b6b78; text-align: center; }
+        label { display: block; margin: 14px 0 5px; font-weight: 600; font-size: .9rem; }
+        input { width: 100%; padding: 10px 12px; border: 1px solid #c4ced6; border-radius: 8px; font-size: 1rem; }
+        input:focus { outline: 2px solid #0b6fa4; border-color: transparent; }
+        button { width: 100%; margin-top: 24px; padding: 12px; border: 0; border-radius: 8px; background: #0b6fa4; color: #fff;
+                 font-size: 1rem; font-weight: 600; cursor: pointer; }
+        button:hover { background: #095a86; }
+        .cadastrar { display: block; margin-top: 12px; padding: 11px; text-align: center; border: 1px solid #0b6fa4; border-radius: 8px;
+                     color: #0b6fa4; text-decoration: none; font-weight: 600; }
+        .cadastrar:hover { background: #eaf4fa; }
+        .dica { font-size: .8rem; color: #7a8894; margin-top: 4px; }
+    </style>
+</head>
+<body>
+<main class="cartao">
+    <h1>ClínicaMed</h1>
+    <p class="sub">Entre na sua conta</p>
+
+    <form method="post" action="/api/login">
+        <label for="usuario">CPF ou CRM</label>
+        <input type="text" id="usuario" name="usuario" maxlength="20" autocomplete="username" required>
+        <div class="dica">Pacientes e funcionários entram com CPF; médicos, com CRM.</div>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" autocomplete="current-password" required>
+
+        <button type="submit">Entrar</button>
+    </form>
+
+    <a class="cadastrar" href="/escolhaPerfil.html">Cadastrar-se</a>
+</main>
+</body>
+</html>

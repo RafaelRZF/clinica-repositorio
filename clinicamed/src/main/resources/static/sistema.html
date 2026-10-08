@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ClínicaMed - Sistema</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #eef3f8; color: #1c2b36; }
+        header { background: #0b6fa4; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; }
+        header h1 { margin: 0; font-size: 1.3rem; }
+        header a { color: #fff; font-size: .9rem; }
+        nav { background: #fff; display: flex; gap: 4px; padding: 0 16px; overflow-x: auto; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+        nav a { padding: 14px 16px; color: #42545f; text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
+        nav a:hover { color: #0b6fa4; }
+        main { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+        .aba { display: none; }
+        .aba:target { display: block; }
+        /* Sem #aba na URL, mostra o Início */
+        body:not(:has(.aba:target)) #inicio { display: block; }
+        /* Destaque da aba ativa */
+        body:not(:has(.aba:target)) nav a[href="#inicio"],
+        body:has(#inicio:target) nav a[href="#inicio"],
+        body:has(#agendar:target) nav a[href="#agendar"],
+        body:has(#consultas:target) nav a[href="#consultas"],
+        body:has(#prontuarios:target) nav a[href="#prontuarios"],
+        body:has(#pagamentos:target) nav a[href="#pagamentos"] { color: #0b6fa4; font-weight: 600; border-color: #0b6fa4; }
+        .atalhos { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 8px; }
+        .atalhos a { background: #0b6fa4; color: #fff; text-align: center; padding: 16px; border-radius: 10px; text-decoration: none; font-weight: 600; }
+        .atalhos a:hover { background: #095a86; }
+        iframe { width: 100%; height: 70vh; min-height: 420px; border: 0; background: transparent; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ClínicaMed</h1>
+        <a href="/api/logout">Sair</a>
+    </header>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#agendar">Marcar consulta</a>
+        <a href="#consultas">Minhas consultas</a>
+        <a href="#prontuarios">Prontuários</a>
+        <a href="#pagamentos">Pagamentos</a>
+    </nav>
+
+    <main>
+        <section class="aba" id="inicio">
+            <iframe src="/app/lista/inicio" title="Início" style="height:260px;min-height:0"></iframe>
+            <div class="atalhos">
+                <a href="#agendar">Marcar consulta</a>
+                <a href="#prontuarios">Ver prontuários</a>
+                <a href="#pagamentos">Ver pagamentos</a>
+            </div>
+        </section>
+
+        <section class="aba" id="agendar">
+            <iframe src="/app/lista/agendar" title="Marcar consulta"></iframe>
+        </section>
+
+        <section class="aba" id="consultas">
+            <iframe src="/app/lista/consultas" title="Minhas consultas"></iframe>
+        </section>
+
+        <section class="aba" id="prontuarios">
+            <iframe src="/app/lista/prontuarios" title="Prontuários"></iframe>
+        </section>
+
+        <section class="aba" id="pagamentos">
+            <iframe src="/app/lista/pagamentos" title="Pagamentos"></iframe>
+        </section>
+    </main>
+</body>
+</html>
